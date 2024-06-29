@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Registration Page</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css1/bootstrap.min.css" rel="stylesheet">
+    <link href="css1/font-awesome.min.css" rel="stylesheet">
+    <link href="css1/style.css" rel="stylesheet">
+    <link href="css1/nav.css" rel="stylesheet">
+    <link href="css1/global.css" rel="stylesheet">
+    <link href="css1/authentication.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            let isValid = true;
+            const fields = ['fname', 'lname', 'email', 'age', 'mobile', 'pass', 'copass'];
+            fields.forEach(field => {
+                const input = document.getElementById(field);
+                const error = document.getElementById(`${field}Error`);
+                if (!input.value.trim()) {
+                    error.style.display = 'block';
+                    isValid = false;
+                } else {
+                    error.style.display = 'none';
+                }
+            });
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+	
+<form action="process_register.php" method="POST" onsubmit="return validateForm()">
+    <section id="autlog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="autlog_1 reg_n1">
+                        <h2 class="text-center mb-4"><a class="colo_4" href="#"></a></h2>
+                        <div class="autlog_1i bg-white" style="width:40%; padding:40px; margin-left:auto; margin-right:auto; border-radius:5px;">
+                            <h5 class="mb-3">Register
+                                <span class="float-end text_13 normal mt-1">Have an account?  <a class="colo_4" href="authent_login.html">Login</a></span></h5>
+                            <input class="form-control" type="text" placeholder="First Name" name="fname" id="fname"><br>
+                            <div id="fnameError" class="error">Please enter First name</div>
+                            <input class="form-control" type="text" placeholder="Last Name" name="lname" id="lname">
+                            <div id="lnameError" class="error">Please enter Last name</div>
+                            <input class="form-control mt-3" type="email" placeholder="Email address" name="email" id="email">
+                            <div id="emailError" class="error">Please enter Email id</div>
+                            <div class="row reg_ni">
+                                <div class="col-md-6">
+                                    <div class="reg_nil">
+                                        <input class="form-control mt-3" type="number" placeholder="Age" name="age" id="age">
+                                        <div id="ageError" class="error">Please enter age</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="reg_nil">
+                                        <input class="form-control mt-3" type="number" placeholder="Mobile No." name="mobile" id="mobile">
+                                        <div id="mobileError" class="error">Please enter mobile no</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="reg_nil">
+                                        <input class="form-control mt-3" type="password" placeholder="Password" name="pass" id="pass">
+                                        <div id="passError" class="error">Please enter Password</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="reg_nil">
+                                        <input class="form-control mt-3" type="password" placeholder="Confirm Password" name="copass" id="copass">
+                                        <div id="copassError" class="error">Please re-enter password</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-check mt-4"><input class="form-check-input" type="checkbox"><label class="form-label bold">I accept the <a class="colo_4" href="#">terms </a>and <a class="colo_4" href="#">privacy policy</a></label></div>
+                            <button class="btn btn-primary d-block w-100 mt-3 bold" type="submit" name="submit">Register</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/global.js"></script>
+</body>
+</html>
